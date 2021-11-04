@@ -20,7 +20,7 @@ sudo apt-get update
 
 # install system packages
 sudo apt-get install -y  alsa-utils \
-     libasound2 libasound2-plugins \
+     libasound2 libasound2-plugins libpulse-dev \
      pulseaudio pulseaudio-utils \
      sox libsox-fmt-all mimic \
      python3.7 python3-pip python3.7-venv python3.7-dev \
@@ -34,7 +34,7 @@ python3.7 -m venv "/home/neon/venv" || exit 10
 . /home/neon/venv/bin/activate
 pip install --upgrade pip~=21.1.0
 pip install wheel
-pip install "git+https://${GITHUB_TOKEN}@github.com/NeonGeckoCom/NeonCore#egg=neon_core[pi,dev,client]" --use-deprecated=legacy-resolver || exit 1
+pip install "git+https://${GITHUB_TOKEN}@github.com/NeonGeckoCom/NeonCore#egg=neon_core[pi,dev,client]" || exit 1
 
 # mycroft-gui
 git clone https://github.com/mycroftai/mycroft-gui
@@ -91,7 +91,7 @@ export devType="mycroft_mark_2"
 export skillRepo="https://raw.githubusercontent.com/NeonGeckoCom/neon-skills-submodules/dev/.utilities/DEFAULT-SKILLS-PI"
 
 neon-config-import
-#neon-install-default-skills
+neon-install-default-skills
 
 # Setup Completed
 echo "Setup Complete"

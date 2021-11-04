@@ -32,9 +32,14 @@ bash ./install_xmos_drivers.sh
 ## base_neon_core
 Installs the base Neon core and dependencies. Installation should be performed by the user `neon`.
 ```bash
-git clone https://github.com/NeonGeckoCom/neon-image-recipe
-cd neon-image-recipe/monolithic
+cd neon-image-recipe/base_neon_core
 bash ./install_requirements.sh
+```
+
+## monolithic
+Set up Neon to run as a single system service
+```bash
+cd neon-image-recipe/monolithic
 bash ./setup_system.sh
 #sudo bash ./host_configuration.sh
 sudo reboot now
